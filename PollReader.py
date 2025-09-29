@@ -1,3 +1,5 @@
+#Brandon Reyes Parra
+
 import os
 import unittest
 
@@ -55,16 +57,16 @@ class PollReader():
         """
 
         # iterate through each row of the data
-        for i in self.raw_data:
+        for i in self.raw_data[1:]: #we need to start with row one. We need to iterate 
 
             # split up the row by column
-            seperated = i.split(' ')
+            seperated = i.strip().split(',') #Update by comma + we addted this strip 
 
             # map each part of the row to the correct column
             self.data_dict['month'].append(seperated[0])
             self.data_dict['date'].append(int(seperated[1]))
-            self.data_dict['sample'].append(int(seperated[2]))
-            self.data_dict['sample type'].append(seperated[2])
+            self.data_dict['sample'].append(int(seperated[2])).split(" "([0])) #update the comma and then started with the index
+            self.data_dict['sample type'].append(seperated[2]).split(" "([1])) #update the comma and then started with the index
             self.data_dict['Harris result'].append(float(seperated[3]))
             self.data_dict['Trump result'].append(float(seperated[4]))
 
